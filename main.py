@@ -10,6 +10,15 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException,
 from selenium.webdriver.support.ui import Select
 import time
 
+from selenium.webdriver.chrome.options import Options
+
+options = Options()
+options.add_argument('--headless')  # Run in headless mode
+options.add_argument('--disable-gpu')  # Optional: disables GPU hardware acceleration
+options.add_argument('--no-sandbox')  # Optional: needed for some environments
+options.add_argument('--window-size=1920,1080')  # Optional: ensures full page rendering
+
+
 load_dotenv()
 
 # Configuration
@@ -18,7 +27,7 @@ uname: str = os.getenv('usern')
 pword: str = os.getenv('pword')
 
 # Set up selenium
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(options=options)
 driver.get(url)
 
 # Login
