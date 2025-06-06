@@ -67,3 +67,5 @@ Desktop.ini
 
 # macOS system files
 .DS_Store
+
+.env
